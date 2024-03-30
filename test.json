@@ -1,0 +1,51 @@
+object(App\Entity\User)#1209 (9) {
+    [
+        "id":"App\Entity\User":private
+    ]=> NULL [
+        "firstName":"App\Entity\User":private
+    ]=> NULL [
+        "lastName":"App\Entity\User":private
+    ]=> NULL [
+        "email":"App\Entity\User":private
+    ]=> NULL [
+        "password":"App\Entity\User":private
+    ]=> string(4) "pass"[
+        "courseId":"App\Entity\User":private
+    ]=> NULL [
+        "person":"App\Entity\User":private
+    ]=> object(App\Entity\People)#1463 (6) {
+        [
+            "personId":"App\Entity\People":private
+        ]=> NULL [
+            "firstName":"App\Entity\People":private
+        ]=> string(5) "Carol"[
+            "lastName":"App\Entity\People":private
+        ]=> string(3) "Lee"[
+            "email":"App\Entity\People":private
+        ]=> string(5) "email"[
+            "users":"App\Entity\People":private
+        ]=> object(Doctrine\Common\Collections\ArrayCollection)#1382 (1) {
+            [
+                "elements":"Doctrine\Common\Collections\ArrayCollection":private
+            ]=> array(0) {}
+        } [
+            "apiUserCourses":"App\Entity\People":private
+        ]=> object(Doctrine\Common\Collections\ArrayCollection)#1461 (1) {
+            [
+                "elements":"Doctrine\Common\Collections\ArrayCollection":private
+            ]=> array(0) {}
+        }
+    } [
+        "apiUserCourses":"App\Entity\User":private
+    ]=> object(Doctrine\Common\Collections\ArrayCollection)#1208 (1) {
+        [
+            "elements":"Doctrine\Common\Collections\ArrayCollection":private
+        ]=> array(0) {}
+    } [
+        "apiApplications":"App\Entity\User":private
+    ]=> object(Doctrine\Common\Collections\ArrayCollection)#1207 (1) {
+        [
+            "elements":"Doctrine\Common\Collections\ArrayCollection":private
+        ]=> array(0) {}
+    }
+}
