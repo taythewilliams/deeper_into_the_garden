@@ -1,0 +1,369 @@
+<div class="row">
+
+
+    <div class="col-md-12">
+        <div class="row">
+
+
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h4 class="box-title">
+                            Group Name
+                        </h4>
+                    </div>
+                    <div class="box-body">
+                        <div class="sonata-ba-collapsed-fields">
+
+                            <div id="sonata-ba-field-container-s66ec5fd5b0c54_name" class="form-group">
+
+
+
+                                <label class="control-label required" for="s66ec5fd5b0c54_name">Name</label>
+
+
+
+                                <div class="sonata-ba-field sonata-ba-field-standard-natural">
+                                    <input type="text" id="s66ec5fd5b0c54_name" name="s66ec5fd5b0c54[name]"
+                                        required="required" maxlength="255" class=" form-control">
+
+
+                                    <div id="s66ec5fd5b0c54_name_help"
+                                        class="help-block sonata-ba-field-help help-text">Set the name for the Aggregate
+                                        Group</div>
+
+                                </div>
+                            </div>
+
+                            <div id="sonata-ba-field-container-s66ec5fd5b0c54_courseGroup" class="form-group">
+
+
+
+                                <label class="control-label required" for="s66ec5fd5b0c54_courseGroup">Course
+                                    Group</label>
+
+
+
+                                <div class="sonata-ba-field sonata-ba-field-standard-natural">
+                                    <select id="s66ec5fd5b0c54_courseGroup_autocomplete_input"
+                                        data-sonata-select2="false" class></select>
+                                    <div id="s66ec5fd5b0c54_courseGroup_hidden_inputs_wrap"><input type="hidden"
+                                            name="s66ec5fd5b0c54[courseGroup]" value></div>
+                                    <div id="field_actions_s66ec5fd5b0c54_courseGroup" class="field-actions"></div>
+                                    <script>
+                                        jQuery(function ($) {
+                                            var autocompleteInput = $('#s66ec5fd5b0c54_courseGroup_autocomplete_input');
+
+                                            var select2Options = {
+                                                placeholder: '', // allowClear needs placeholder to work properly
+                                                allowClear: false,
+                                                enable: true,
+                                                minimumInputLength: 3,
+                                                theme: 'bootstrap',
+                                                width: function () {
+                                                    return Admin.get_select2_width(jQuery(this));
+                                                },
+                                                language: "",
+                                                dropdownAutoWidth: false,
+                                                containerCssClass: '\u0020form\u002Dcontrol',
+                                                dropdownCssClass: '',
+                                                dropdownParent: autocompleteInput.parents('.modal').length > 0 ? autocompleteInput.parents('.modal') : $(document.body),
+                                                ajax: {
+                                                    url: '\/admin\/core\/get\u002Dautocomplete\u002Ditems',
+                                                    dataType: 'json',
+                                                    delay: 100, // NEXT_MAJOR: Replace by `100` instead.
+                                                    cache: false,
+                                                    processResults: function (data, params) {
+                                                        return {
+                                                            results: data.items,
+                                                            pagination: {
+                                                                more: data.more
+                                                            }
+                                                        };
+                                                    },
+                                                    data: function (params) {
+                                                        return {
+                                                            //search term
+                                                            'q': params.term,
+
+                                                            // page size
+                                                            '_per_page': 10,
+
+                                                            // page number
+                                                            '_page': (params.page !== 'undefined' ? params.page : 1),
+
+                                                            // admin
+                                                            'uniqid': 's66ec5fd5b0c54',
+                                                            '_sonata_admin': 'admin.aggregate_group',
+
+                                                            'field': 'courseGroup'
+
+                                                            // other parameters
+                                                        };
+                                                    },
+                                                },
+                                                escapeMarkup: function (m) { return m; }, // we do not want to escape markup since we are displaying html in results
+                                                templateResult: function (item) {
+                                                    // When selecting a new result, the label is undefined and the correct property is text
+                                                    if (typeof item.label === 'undefined') {
+                                                        item.label = item.text;
+                                                    }
+
+                                                    return jQuery('<div class="">').text(item.label).prop('outerHTML')
+                                                        ; // format of one dropdown item
+                                                },
+                                                templateSelection: function (item) {
+                                                    // The searching... placeholder appears as text
+                                                    if (typeof item.label === 'undefined') {
+                                                        item.label = item.text;
+                                                    }
+
+                                                    return jQuery('<div>').text(item.label).prop('innerHTML')
+                                                        ; // format selected item '<b>'+item.label+'</b>';
+                                                },
+                                            };
+
+                                            autocompleteInput.select2(select2Options);
+
+                                            autocompleteInput.on('select2:select select2:unselect', function (e) {
+                                                if (e.type === 'select2:select') {
+                                                    e.added = e.params.data;
+                                                }
+                                                if (e.type === 'select2:unselect') {
+                                                    e.removed = e.params.data;
+                                                }
+
+                                                // console.log('change '+JSON.stringify({val:e.val, added:e.added, removed:e.removed}));
+
+                                                // remove input
+                                                if (undefined !== e.removed && null !== e.removed) {
+                                                    var removedItems = e.removed;
+
+                                                    $('#s66ec5fd5b0c54_courseGroup_hidden_inputs_wrap input:hidden').val('');
+                                                }
+
+                                                // add new input
+                                                var el = null;
+                                                if (undefined !== e.added) {
+
+                                                    var addedItems = e.added;
+
+                                                    $('#s66ec5fd5b0c54_courseGroup_hidden_inputs_wrap input:hidden').val(addedItems.id);
+                                                }
+                                            });
+
+                                            // remove unneeded autocomplete text input before form submit
+                                            autocompleteInput.closest('form').submit(function () {
+                                                autocompleteInput.remove();
+                                                return true;
+                                            });
+
+                                            // Automatically select the created record after closing the popup window
+                                        });
+                                    </script>
+
+                                    <div id="s66ec5fd5b0c54_courseGroup_help"
+                                        class="help-block sonata-ba-field-help help-text">Search for the Course Group by
+                                        Name</div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h4 class="box-title">
+                            Messages
+                        </h4>
+                    </div>
+                    <div class="box-body">
+                        <div class="sonata-ba-collapsed-fields">
+
+                            <div id="sonata-ba-field-container-s66ec5fd5b0c54_bookingWelcomeMessage" class="form-group">
+
+
+
+                                <label class="  control-label" for="s66ec5fd5b0c54_bookingWelcomeMessage">Booking
+                                    Welcome Message</label>
+
+
+
+                                <div class="sonata-ba-field sonata-ba-field-standard-natural">
+                                    <textarea id="s66ec5fd5b0c54_bookingWelcomeMessage"
+                                        name="s66ec5fd5b0c54[bookingWelcomeMessage]" class=" form-control"></textarea>
+
+
+
+                                </div>
+                            </div>
+
+                            <div id="sonata-ba-field-container-s66ec5fd5b0c54_bookingRules" class="form-group">
+
+
+
+                                <label class="  control-label" for="s66ec5fd5b0c54_bookingRules">Booking Rules</label>
+
+
+
+                                <div class="sonata-ba-field sonata-ba-field-standard-natural">
+                                    <textarea id="s66ec5fd5b0c54_bookingRules" name="s66ec5fd5b0c54[bookingRules]"
+                                        class=" form-control"></textarea>
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h4 class="box-title">
+                            Add Tee Sheets To This Aggregate Group
+                        </h4>
+                    </div>
+                    <div class="box-body">
+                        <div class="sonata-ba-collapsed-fields">
+
+                            <div id="sonata-ba-field-container-s66ec5fd5b0c54_aggregateTeesheets" class="form-group">
+
+
+
+                                <label class="control-label required">Aggregate Teesheets</label>
+
+
+
+                                <div class="sonata-ba-field sonata-ba-field-inline-natural">
+
+                                    <div id="field_container_s66ec5fd5b0c54_aggregateTeesheets" class="field-container">
+                                        <span id="field_widget_s66ec5fd5b0c54_aggregateTeesheets">
+
+                                        </span>
+
+
+
+                                        <span id="field_actions_s66ec5fd5b0c54_aggregateTeesheets">
+                                            <a href="/admin/app/aggregateteesheet/create?uniqid=s66ec5fd5be44b&amp;code=admin.aggregate_tee_sheet&amp;pcode=admin.aggregate_group&amp;puniqid=s66ec5fd5b0c54"
+                                                onclick="return start_field_retrieve_s66ec5fd5b0c54_aggregateTeesheets(this);"
+                                                class="btn btn-success btn-sm sonata-ba-action" title="Add new">
+                                                <i class="fas fa-plus-circle"></i>
+                                                Add new
+                                            </a>
+                                        </span>
+
+
+
+
+
+
+                                        <!-- edit one association -->
+
+                                        <script type="text/javascript">
+
+                                            // handle the add link
+                                            var field_add_s66ec5fd5b0c54_aggregateTeesheets = function (event) {
+
+                                                event.preventDefault();
+                                                event.stopPropagation();
+
+                                                var form = jQuery(this).closest('form');
+
+                                                // the ajax post
+                                                jQuery(form).ajaxSubmit({
+                                                    url: '/admin/core/append-form-field-element?_sonata_admin=admin.aggregate_group&elementId=s66ec5fd5b0c54_aggregateTeesheets&uniqid=s66ec5fd5b0c54&_sonata_name=admin_app_aggregategroup_create',
+                                                    type: "POST",
+                                                    dataType: 'html',
+                                                    data: { _xml_http_request: true },
+                                                    success: function (html) {
+                                                        if (!html.length) {
+                                                            return;
+                                                        }
+
+                                                        var $newForm = jQuery(html);
+                                                        var $oldForm = jQuery('#field_container_s66ec5fd5b0c54_aggregateTeesheets');
+
+                                                        // Maintain state of file inputs
+                                                        $oldForm.find('input[type="file"]').each(function () {
+                                                            var id = '#' + $(this).attr('id');
+                                                            $newForm.find(id).replaceWith($(this));
+                                                        });
+
+                                                        $oldForm.replaceWith($newForm); // replace the html
+
+                                                        Admin.shared_setup(jQuery('#field_container_s66ec5fd5b0c54_aggregateTeesheets'));
+
+                                                        if (jQuery('input[type="file"]', form).length > 0) {
+                                                            jQuery(form).attr('enctype', 'multipart/form-data');
+                                                            jQuery(form).attr('encoding', 'multipart/form-data');
+                                                        }
+                                                        jQuery('#sonata-ba-field-container-s66ec5fd5b0c54_aggregateTeesheets').trigger('sonata.add_element');
+                                                        jQuery('#field_container_s66ec5fd5b0c54_aggregateTeesheets').trigger('sonata.add_element');
+                                                    }
+                                                });
+
+                                                return false;
+                                            };
+
+                                            var field_widget_s66ec5fd5b0c54_aggregateTeesheets = false;
+
+                                            // this function initializes the popup
+                                            // this can be only done this way as popup can be cascaded
+                                            function start_field_retrieve_s66ec5fd5b0c54_aggregateTeesheets(link) {
+
+                                                link.onclick = null;
+
+                                                // initialize component
+                                                field_widget_s66ec5fd5b0c54_aggregateTeesheets = jQuery("#field_widget_s66ec5fd5b0c54_aggregateTeesheets");
+
+                                                // add the jQuery event to the a element
+                                                jQuery(link)
+                                                    .click(field_add_s66ec5fd5b0c54_aggregateTeesheets)
+                                                    .trigger('click')
+                                                    ;
+
+                                                return false;
+                                            }
+                                        </script>
+
+                                        <!-- / edit one association -->
+
+
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<input type="hidden" id="s66ec5fd5b0c54__token" name="s66ec5fd5b0c54[_token]" class=" form-control"
+    value="da1502bbd4c796fb17.0SIykYv0W-CgLZqMvaH_m7KkS24DQATVkZwapNW3K6E.uRV24dSyLKXGVe_O_uur89qJJglSBUuFxtZJ4-TWUs-7T3j2vL8DsflUzw">
+
+
+<div class="sonata-ba-form-actions well well-small form-actions">
+    <button class="btn btn-success" type="submit" name="btn_create_and_edit"><i class="fas fa-save"
+            aria-hidden="true"></i> Create</button>
+    <button type="submit" class="btn btn-success" name="btn_create_and_list"><i class="fas fa-save"></i> <i
+            class="fas fa-list" aria-hidden="true"></i> Create and return to list</button>
+    <button class="btn btn-success" type="submit" name="btn_create_and_create"><i class="fas fa-plus-circle"
+            aria-hidden="true"></i> Create and add another</button>
+</div>
